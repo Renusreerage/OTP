@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Service</title>
+    <style>
+      body{
+        background-image: url(pink.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      #container{
+        text-align: center;
+        margin-top: 400px;
+      }
+      /* #displayAction {
+          animation: blink 1s infinite;
+      } */
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1 style="color: blue;">Generate OTP</h1>
+        <label for="otpGeneration" style="font-size: 20px; color: blue;">Generated OTP is:<span id="digit" style="font-size: 25px;"></span></label>
+        <br><br>
+        <input type="text" id="input" style="text-align: center;">
+        <button type="button" id="Btn" style="color: blue;">verify</button>
+        <!-- <button type="reset" id="reset1" value="reset">Reset</button> -->
+        <h4 id="displayAction" style="margin-left: 40px;"></h4>
+        
+    </div>
+</body>
+  <script>
+    let button = document.querySelector("#Btn")
+    let generateOTP = document.querySelector("#digit")
+    let input = document.querySelector("#input")
+    // let button2 = document.querySelector("reset1")
+
+     setInterval(button1,5000)
+
+     button.addEventListener('click',verifyOTP)
+    
+    // function resetAction(){
+    //   document.querySelector("#container").reset();
+    // }
+
+     function button1(){
+      newOTP = Math.floor((Math.random()*9000)+1000)
+      generateOTP.innerHTML = newOTP
+     }
+
+     function verifyOTP(){
+      let action = document.querySelector("#displayAction")
+      // let action = document.querySelector(".blink")
+      let ToVerify = input.value
+
+      if (newOTP == ToVerify){
+        action.innerHTML = "OTP Registered!";
+        action.style.color = "green"
+      }
+      else {
+        action.innerHTML = "OTP Rejected!";
+        action.style.color = 'red'
+      }
+     }
+       setInterval(function(){
+        let action = document.querySelector("#displayAction")
+        action.style.opacity = (action.style.opacity == 0 ? 1 : 0);
+       }, 500);
+
+
+    
+  </script>
+</html>
